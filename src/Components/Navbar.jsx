@@ -1,14 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { CiMenuBurger } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
 import logo from "../assets/logo1.png";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FaCartArrowDown } from "react-icons/fa";
+import LoginContext from '../Context/LoginContext';
+import CartContext from '../Context/CartContext';
  
 
 
 
 const Navbar = () => {
+
+  const {openlogin,setlogin}=useContext(LoginContext);
+  const {cartitemscount}=useContext(CartContext);
 
     const navigate=useNavigate();
 
@@ -54,14 +59,27 @@ const Navbar = () => {
             
             )}
             <div className='font-mono font-extralight'>
-                    <button className='px-2 py-1 bg-red-500 rounded-lg'>Login</button>
+                    <button onClick={()=>{setlogin(true);
+                      console.log("Login button clicked, openlogin:", openlogin);
+                    }} className='px-2 py-1 bg-red-500 rounded-lg'>Login</button>
             </div>
+            <FaCartArrowDown size={25}  className='text-red-600 cursor-pointer' onClick={()=>{navigate("/cart")}} /> 
+             {cartitemscount()>0 && (
+              <span className="absolute top-3 right-1 bg-red-600 text-white rounded-full text-sm w-4 h-4 flex items-center justify-center">
+              {cartitemscount()}
+            </span>
+             )}
         </div>
 
         {/* -------------Small Screen------------- */}
         <div className='flex md:hidden items-center mr-5 gap-5'>
         
-             <FaCartArrowDown size={25} className='text-red-600' onClick={()=>{navigate("/cart")}} />
+             <FaCartArrowDown size={25}  className='text-red-600 cursor-pointer' onClick={()=>{navigate("/cart")}} /> 
+             {cartitemscount()>0 && (
+              <span className="absolute top-3 right-12 bg-red-600 text-white rounded-full text-sm w-4 h-4 flex items-center justify-center">
+              {cartitemscount()}
+            </span>
+             )}
     
             {!toggle?<CiMenuBurger onClick={handleToggle} size={25} /> :<IoMdClose onClick={handleToggle} size={25} />}
             
@@ -81,7 +99,7 @@ const Navbar = () => {
             
             )}
             <div className='font-mono font-extralight flex justify-center'>
-                    <button className='px-2 py-1 bg-blue-500 rounded-lg'>Login</button>
+                    <button onClick={()=>setlogin(true)} className='px-2 py-1 bg-blue-500 rounded-lg'>Login</button>
             </div>
         </div>
 
@@ -90,3 +108,7 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+
+
+

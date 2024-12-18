@@ -63,7 +63,7 @@ const Cart = () => {
     const total = item.cart.reduce((sum, item) => sum + item.price, 0);
 
     return (
-        <div className="max-w-[1200px] h-screen p-5 mx-auto">
+        <div className="max-w-[1200px] min-h-screen flex flex-col h-full p-5 mx-auto">
             <h1 className="text-center text-2xl font-serif">Cart</h1>
             <div className="w-full mt-5 space-y-5">
                 {item.cart.map((carti, index) => (

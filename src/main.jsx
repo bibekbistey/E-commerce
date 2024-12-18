@@ -12,6 +12,10 @@ import Product from './Components/Product.jsx'
 import { ProductContextProvider } from './Context/ProductContext.jsx'
 import { CartCotextProvider } from './Context/CartContext.jsx'
 import Cart from './Components/Cart.jsx'
+import Signup from './Components/Signup.jsx'
+import Login from './Components/Login.jsx'
+import { LoginContextProvider } from './Context/LoginContext.jsx'
+import SignupContext, { SignupContextProvider } from './Context/SignupContext.jsx'
 
 
 const router=createBrowserRouter(
@@ -23,6 +27,8 @@ const router=createBrowserRouter(
       <Route path='about' element={<About></About>}></Route>
       <Route path='contact' element={<Contact></Contact>}></Route>
       <Route path='cart' element={<Cart></Cart>}></Route>
+      {/* <Route path="signup" element={<Signup></Signup>}></Route>
+      <Route path='login' element={<Login></Login>}></Route> */}
 
     </Route>
 
@@ -32,10 +38,20 @@ const router=createBrowserRouter(
 createRoot(document.getElementById('root')).render(
 
   <StrictMode>
+    <SignupContextProvider>
+    <LoginContextProvider>
     <CartCotextProvider>
     <ProductContextProvider>
     <RouterProvider router={router}></RouterProvider>
+    <Login></Login>
+    <Signup></Signup>
     </ProductContextProvider>
     </CartCotextProvider>
+    </LoginContextProvider>
+    </SignupContextProvider>
   </StrictMode>,
 )
+
+
+
+
