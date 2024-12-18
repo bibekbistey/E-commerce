@@ -1,62 +1,8 @@
-// import React, { useContext } from 'react'
-// import CartContext from '../Context/CartContext'
-
-// const Cart = () => {
-//     const item=useContext(CartContext);
-//     const total=item.cart.reduce((sum,item)=>sum+item.price,0);
-//   return (
-//     <div className='max-w-[1200px] h-screen p-5 mx-auto '>
-//     <h1 className='text-center text-2xl font-serif'>Cart</h1>
-//     <div className='w-full h-[25%] mt-5 space-y-5'>
-//     {item.cart.map((carti)=>
-        
-//         <table>
-//             <tr>
-//                 <th>Image</th>
-//                 <th>Name</th>
-//                 <th>Price</th>
-//                 <th>Quantity</th>
-//             </tr>
-//             <tr>
-//                 <td><img className='w-[27%] h-auto object-cover' src={carti.img}></img></td>
-//                 <td><h1 className='font-mono text-md text-red-600 '>{carti.name}</h1>
-//                 </td>
-//                 <td><p className='font-mono text-md'>NPR. {carti.price}</p></td>
-//             </tr>
-//         </table>
-        
-//         // <div className='flex h-full justify-center items-center border-orange-400 border shadow-md md:w-1/2 mx-auto gap-10'>
-//         //     <img className='w-[27%] h-auto mx-5 p-2 object-cover mr-10' src={carti.img}></img>
-
-//         //     <div>
-//         //     <h1 className='font-mono text-md text-red-600 '>{carti.name}</h1>
-//         //     <p className='font-mono text-md'>NPR. {carti.price}</p>
-//         //     </div>
-            
-//         // </div>
-        
-            
-        
-        
-
-       
-
-        
-//     )}
-//     <div className='text-center font-mono'><span className='font-extrabold text-gray-500'>Total:</span> {total} </div>
-
-//             </div>
-//     </div>
-//   )
-// }
-
-// export default Cart
-
-
-
 
 import React, { useContext } from 'react';
 import CartContext from '../Context/CartContext';
+import { AiFillDelete } from "react-icons/ai";
+
 
 const Cart = () => {
     const item = useContext(CartContext);
@@ -64,7 +10,8 @@ const Cart = () => {
 
     return (
         <div className="max-w-[1200px] min-h-screen flex flex-col h-full p-5 mx-auto">
-            <h1 className="text-center text-2xl font-serif">Cart</h1>
+            <h1 className="relative text-center text-2xl font-serif">Cart</h1>
+            <AiFillDelete onClick={()=>item.setCart([])} className='absolute right-10 text-red-600 cursor-pointer' size={20} />
             <div className="w-full mt-5 space-y-5">
                 {item.cart.map((carti, index) => (
                     <div key={index} className="overflow-x-auto">
@@ -99,6 +46,8 @@ const Cart = () => {
                 <div className="text-center mt-5 font-mono">
                     <span className="font-extrabold text-gray-500">Total:</span> NPR. {total}
                 </div>
+                
+
             </div>
         </div>
     );

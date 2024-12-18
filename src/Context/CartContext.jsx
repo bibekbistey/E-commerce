@@ -3,7 +3,7 @@ import Cart from '../Components/Cart';
 
 const CartContext = React.createContext();
 
-export const CartCotextProvider=({children})=>{
+export const CartContextProvider=({children})=>{
 
     const [cart,setCart]=useState([])
 
@@ -13,11 +13,11 @@ export const CartCotextProvider=({children})=>{
     }
 
     const cartitemscount=()=>{
-        return cart.length
+        return cart.length;
     }
 
     return(
-        <CartContext.Provider value={{cart,addtocart,cartitemscount}}>
+        <CartContext.Provider value={{cart,setCart,addtocart,cartitemscount}}>
             {children}
         </CartContext.Provider>
 

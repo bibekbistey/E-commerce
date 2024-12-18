@@ -11,13 +11,13 @@ const Product = () => {
   const navigate=useNavigate();
   
   return (
-    <div className="max-w-[1200px] mx-auto mt-5 p-5 md:flex">
-      <IoIosArrowBack className='cursor-pointer' onClick={()=>{navigate(-1)}} size={25} />
-      <div className='w-full md:w-1/2 h-1/2 flex justify-center'>
+    <div className="max-w-[1200px] min-h-screen mx-auto mt-5 p-5 md:flex">
+      <IoIosArrowBack className='cursor-pointer text-gray-400' onClick={()=>{navigate(-1)}} size={25} />
+      <div className='w-full md:w-1/2 flex justify-center md:items-center'>
         <img
         src={prod.details.img}
         alt={prod.details.name}
-        className="w-[60%] h-auto object-cover p-2 my-5 rounded-sm shadow-sm shadow-stone-600"
+        className="w-[60%] bg-gray-200 h-auto object-cover p-2 my-5 rounded-sm shadow-stone-600 "
       />
 
       </div>

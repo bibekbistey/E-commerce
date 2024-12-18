@@ -29,7 +29,7 @@ const Home = () => {
                     <h1 className='text-5xl md:text-[42px] lg:text-[62px] max-w-3xl'>Get the best products at affordable price</h1>
                     <h2 className=' text-xl text-gray-400'>Stop visiting physical stores</h2>
                     <h3 className=' font-thin text-gray-400'>Get upto 60% discounts</h3>
-                    <button onClick={()=>navigate("/shop")} className='mx-10 text-lg px-2 py-1 bg-red-600 rounded-xl text-white font-mono font-bold'>Shop Now</button></div>
+                    <button onClick={()=>navigate("/shop")} className='mx-10 text-lg px-2 py-1 bg-red-600 rounded-lg text-white font-mono font-bold'>Shop Now</button></div>
                
             </div>
         

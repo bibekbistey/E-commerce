@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import SignupContext from '../Context/SignupContext'
 import LoginContext from '../Context/LoginContext';
+import { IoCloseCircle } from "react-icons/io5";
+
 
 const Signup = () => {
 
@@ -12,7 +14,8 @@ const Signup = () => {
     <div className='fixed left-0 right-0 top-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm p-4 md:p-0 z-30'>
     <div className="w-full h-screen flex justify-center items-center p-5 font-serif ">
      
-      <div className="max-w-[500px] w-full border-2 h-[70vh] flex flex-col items-center justify-center space-y-5 shadow-md rounded-md bg-white">
+      <div className="relative max-w-[500px] w-full border-2 h-[70vh] flex flex-col items-center justify-center space-y-5 shadow-md rounded-md bg-white">
+        <IoCloseCircle onClick={()=>{setsignup(false)}} size={25} className="absolute top-4 right-4 cursor-pointer text-red-500" />
         <p className="text-center text-3xl font-semibold">Signup</p>
         
         <div className="w-[70%] space-y-3 flex-col justify-center">

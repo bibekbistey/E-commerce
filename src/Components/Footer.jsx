@@ -18,8 +18,8 @@ const Footer = () => {
     path:"/shop"
 },
 {
-    name:"About",
-    path:"/about"
+    name:"Blog",
+    path:"/blog"
 },
 {
     name:"Contact",
