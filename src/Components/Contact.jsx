@@ -49,7 +49,7 @@ const Contact = () => {
       <p className="text-center mt-2 text-3xl font-nav font-semibold">Get In Touch</p>
       <div className='md:flex md:space-x-10 mt-10'>
       <div className="w-full px-8 py-4 mt-12 md:w-1/2">
-        <h2 className="font-nav font-bold">Visit Our Local Store</h2>
+        <h2 className="font-nav font-bold text-2xl mb-8">Visit Our Local Store</h2>
         <div className="mt-2 text-gray-600 space-y-3">
           <p className="flex items-center">
             <FaMapLocation size={20} />

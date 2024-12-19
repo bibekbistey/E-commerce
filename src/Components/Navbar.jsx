@@ -8,6 +8,7 @@ import LoginContext from '../Context/LoginContext';
 import CartContext from '../Context/CartContext';
 import { FaOpencart } from "react-icons/fa6";
 import { RiMenuFoldFill } from "react-icons/ri";
+import {motion} from "framer-motion";
  
 
 
@@ -44,33 +45,57 @@ const Navbar = () => {
     }
 
   return (
-    <div className='w-full h-[10vh] bg-green-200 flex justify-between sticky top-0 z-10 shadow-md rounded-sm'>
+    <motion.div
+    initial={{ opacity:0 }}
+    animate={{ opacity:1 }}
+    transition={{ duration: 0.5 }}
+     className='w-full h-[10vh] bg-green-200 flex justify-between sticky top-0 z-10 shadow-md rounded-sm'>
         {/* -------Image------- */}
-        <div className='h-full w-28 flex items-center cursor-pointer'>
+        <motion.div
+        initial={{ opacity:0, x:-100 }}
+        animate={{ opacity:1,x:0 }}
+        transition={{ duration: 1 }}
+         className='h-full w-28 flex items-center cursor-pointer'>
             <img src={logo} onClick={()=>navigate("")} alt='Company Logo'></img>
 
-        </div>
+        </motion.div>
         {/* -------------Menu------------------ */}
         <div className='hidden md:flex items-center gap-8 mr-5'>
             {menu.map((list,index)=>
-            <div>
+            <motion.div 
+            initial={{ opacity:0,y:-100 }}
+    animate={{ opacity:1,y:0 }}
+    transition={{ duration: 0.5,delay: 0.2*index }}
+            >
+                
                 
                 <NavLink to={list.path} className={({isActive})=>isActive?"text-blue-600":"" }><h2 className='text-lg font-nav font-semibold hover:scale-105'>{list.name}</h2></NavLink>
                 
-            </div>
+            </motion.div>
             
             )}
-            <FaOpencart size={25}  className='text-gray-600 cursor-pointer' onClick={()=>{navigate("/cart")}} /> 
+            <motion.div initial={{ opacity:0,y:-100 }}
+            animate={{ opacity:1,y:0 }}
+            transition={{ duration: 0.5,delay:0.7 }}>
+            <FaOpencart
+            
+             size={25}  className='text-gray-600 cursor-pointer' onClick={()=>{navigate("/cart")}} /> 
              {cartitemscount()>0 && (
               <span className="absolute top-3 right-24 bg-red-600 text-white rounded-full text-sm w-4 h-4 flex items-center justify-center">
               {cartitemscount()}
             </span>
              )}
-            <div className='font-nav text-white'>
+
+</motion.div>
+            <motion.div
+            initial={{ opacity:0, }}
+            animate={{ opacity:1, }}
+            transition={{ duration: 1,delay:1 }}
+             className='font-nav text-white'>
                     <button onClick={()=>{setlogin(true);
                       console.log("Login button clicked, openlogin:", openlogin);
                     }} className='px-2 py-1 bg-red-500 rounded-lg'>Login</button>
-            </div>
+            </motion.div>
             
         </div>
 
@@ -106,7 +131,7 @@ const Navbar = () => {
             </div>
         </div>
 
-    </div>
+    </motion.div>
   )
 }
 

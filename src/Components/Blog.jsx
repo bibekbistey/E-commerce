@@ -1,22 +1,30 @@
 import React from 'react'
 import blogPosts from "../Data/Blog"
+import {motion} from "framer-motion";
 
 const Blog = () => {
   
   return (
     <div className="bg-gray-100 min-h-screen">
     
-    <div className="text-blak py-6 text-center border-b">
+    <motion.div
+    initial={{ opacity:0,y:-10 }}
+    animate={{ opacity:1,y:0 }}
+    transition={{ duration: 1 }}
+     className="text-blak py-6 text-center border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold">Our Blog</h1>
         <p className="text-lg">Latest products, discounts and rewards for festive season</p>
       </div>
-    </div>
+    </motion.div>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <h2 className="text-2xl font-bold mb-6 text-gray-800">Latest Posts</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {blogPosts.map((post) => (
-          <div
+        {blogPosts.map((post,index) => (
+          <motion.div
+          initial={{ opacity:0, }}
+            animate={{ opacity:1 }}
+            transition={{ duration: 1,delay:0.8*index }}
             key={post.id}
             className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
           >
@@ -36,7 +44,7 @@ const Blog = () => {
                 Read More
               </a>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
