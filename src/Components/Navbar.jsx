@@ -75,7 +75,7 @@ const Navbar = () => {
         </div>
 
         {/* -------------Small Screen------------- */}
-        <div className='flex md:hidden items-center mr-5 gap-5'>
+        <div className='flex md:hidden items-center mr-5 gap-5 z-50 '>
         
              <FaOpencart size={25}  className='text-blak cursor-pointer text-gray-600' onClick={()=>{navigate("/cart")}} /> 
              {cartitemscount()>0 && (
@@ -87,7 +87,7 @@ const Navbar = () => {
             {!toggle?<RiMenuFoldFill onClick={handleToggle} size={25} className='text-gray-600' /> :<IoMdClose onClick={handleToggle} className='text-gray-600' size={25} />}
             
         </div>
-        <div className= {toggle?'fixed md:hidden items-center space-y-8 mr-5 top-0 w-1/2 h-full bg-[#1c1c1e] text-white rounded-md':"fixed left-[-100%]"}>
+        <div className= {toggle?'fixed md:hidden items-center space-y-8 mr-5 z-50 top-0 w-1/2 h-full bg-[#1c1c1e] text-white rounded-md':"fixed left-[-100%]"}>
         <div className='w-28 flex items-center mx-auto cursor-pointer'>
             <img src={logo} onClick={()=>{navigate("");settoggle(false)}} alt='Company Logo'></img>
 
