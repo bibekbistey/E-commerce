@@ -27,8 +27,8 @@ const Shop = () => {
    
   
   return (
-    <div className='max-w-[1300px] h-full mx-auto p-10'>
-      <h1 className='flex justify-center font-nav font-bold text-2xl'>All products</h1>
+    <div className='max-w-[1300px] min-h-screen h-full mx-auto p-10'>
+      <h1 className='flex justify-center font-nav font-bold text-2xl mb-10'>All products</h1>
       <div className='grid justify-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-5 p-3 '>
         {rows.map((item,index)=>
         <motion.div 
@@ -48,7 +48,7 @@ const Shop = () => {
         </motion.div>
         )}
       </div>
-      <div className='flex justify-center gap-2 mt-4'>
+      <div className='flex justify-center gap-2 mt-10'>
         <button className='px-1 py-0 bg-green-500 rounded-sm font-bold' onClick={()=>handlepagechange(currentpage-1)}>&lt;</button>
         {pageIndex.slice(Math.max(0,currentpage-2),Math.min(numberofpage,currentpage+2)
                 ).map((page)=>

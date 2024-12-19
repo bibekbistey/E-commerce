@@ -24,7 +24,7 @@ const Blog = () => {
           <motion.div
           initial={{ opacity:0, }}
             animate={{ opacity:1 }}
-            transition={{ duration: 1,delay:0.8*index }}
+            transition={{ duration: 1,delay:0.6*index }}
             key={post.id}
             className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition"
           >
